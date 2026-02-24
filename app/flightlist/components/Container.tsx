@@ -20,8 +20,8 @@ type SearchCriteria = {
   travelClass: string;
   from: string;
   to: string;
-  departure?: Date;
-  return?: Date;
+  departureDate?: Date;
+  returnDate?: Date;
 };
 
 const parseDate = (dateStr: string): Date => {
@@ -66,8 +66,8 @@ const Container = ({ search }: { search?: SearchCriteria }) => {
           flight.arrival.airport.toLowerCase().includes(to)
         );
       }
-      if (search.departure) {
-        const searchDepDate = new Date(search.departure);
+      if (search.departureDate) {
+        const searchDepDate = new Date(search.departureDate);
         searchDepDate.setHours(0, 0, 0, 0);
         results = results.filter(flight => {
           const flightDate = parseDate(flight.departure.date);
@@ -75,8 +75,8 @@ const Container = ({ search }: { search?: SearchCriteria }) => {
           return flightDate.getTime() === searchDepDate.getTime();
         });
       }
-      if (search.return && search.departure) {
-        const searchRetDate = new Date(search.return);
+      if (search.returnDate && search.departureDate) {
+        const searchRetDate = new Date(search.returnDate);
         searchRetDate.setHours(0, 0, 0, 0);
         results = results.filter(flight => {
           if (!flight.returnFlight) return false;
