@@ -1,0 +1,289 @@
+{
+    "flights": [
+        {
+            "id": "DUMMY1",
+            "airline": "ABC Air Technologies",
+            "airlineCode": "AT",
+            "travelClass": "Economy",
+            "departure": {
+                "time": "06:45",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "07:55",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "1h 10m",
+            "stops": 0,
+            "price": 8450,
+            "seatsRemaining": 23,
+            "refundable": "non-refundable",
+            "returnFlight": {
+                "departure": {
+                    "time": "18:30",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Jomo Kenyatta Intl",
+                    "city": "Nairobi",
+                    "country": "Kenya"
+                },
+                "arrival": {
+                    "time": "19:40",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Moi International Airport",
+                    "city": "Mombasa",
+                    "country": "Kenya"
+                },
+                "duration": "1h 10m"
+            }
+        },
+        {
+            "id": "DUMMY2",
+            "airline": "ABC Airlines",
+            "airlineCode": "AA",
+            "travelClass": "Economy",
+            "departure": {
+                "time": "09:15",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "10:20",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "duration": "1h 05m",
+            "stops": 0,
+            "price": 5990,
+            "seatsRemaining": 8,
+            "refundable": "non-refundable"
+        },
+        {
+            "id": "DUMMY3",
+            "airline": "XYZ Airways",
+            "airlineCode": "XY",
+            "travelClass": "Economy",
+            "departure": {
+                "time": "14:20",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "15:35",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "1h 15m",
+            "stops": 0,
+            "price": 9200,
+            "seatsRemaining": 41,
+            "refundable": "partially-refundable",
+            "returnFlight": {
+                "departure": {
+                    "time": "07:00",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Jomo Kenyatta Intl",
+                    "city": "Nairobi",
+                    "country": "Kenya"
+                },
+                "arrival": {
+                    "time": "08:15",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Moi International Airport",
+                    "city": "Mombasa",
+                    "country": "Kenya"
+                },
+                "duration": "1h 15m"
+            }
+        },
+        {
+            "id": "DUMMY4",
+            "airline": "BOP Links",
+            "airlineCode": "BL",
+            "travelClass": "Economy",
+            "departure": {
+                "time": "11:30",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "14:45",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "3h 15m",
+            "stops": 1,
+            "price": 4750,
+            "seatsRemaining": 12,
+            "refundable": "non-refundable"
+        },
+        {
+            "id": "DUMMY5",
+            "airline": "ABC Air Technologies",
+            "airlineCode": "AT",
+            "travelClass": "Business",
+            "departure": {
+                "time": "17:45",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "18:55",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "1h 10m",
+            "stops": 0,
+            "price": 24500,
+            "seatsRemaining": 6,
+            "refundable": "fully-refundable",
+            "returnFlight": {
+                "departure": {
+                    "time": "20:15",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Jomo Kenyatta Intl",
+                    "city": "Nairobi",
+                    "country": "Kenya"
+                },
+                "arrival": {
+                    "time": "21:25",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Moi International Airport",
+                    "city": "Mombasa",
+                    "country": "Kenya"
+                },
+                "duration": "1h 10m"
+            }
+        },
+        {
+            "id": "DUMMY6",
+            "airline": "EDF Express",
+            "airlineCode": "EE",
+            "travelClass": "Economy",
+            "departure": {
+                "time": "20:00",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "21:10",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "1h 10m",
+            "stops": 0,
+            "price": 6450,
+            "seatsRemaining": 31,
+            "refundable": "non-refundable"
+        },
+        {
+            "id": "DUMMY7",
+            "airline": "XYZ Airways",
+            "airlineCode": "XY",
+            "travelClass": "Economy",
+            "departure": {
+                "time": "08:00",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "12:30",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "4h 30m",
+            "stops": 1,
+            "price": 7800,
+            "seatsRemaining": 19,
+            "refundable": "partially-refundable",
+            "returnFlight": {
+                "departure": {
+                    "time": "14:00",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Jomo Kenyatta Intl",
+                    "city": "Nairobi",
+                    "country": "Kenya"
+                },
+                "arrival": {
+                    "time": "18:20",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Moi International Airport",
+                    "city": "Mombasa",
+                    "country": "Kenya"
+                },
+                "duration": "4h 20m"
+            }
+        },
+        {
+            "id": "DUMMY8",
+            "airline": "ABC Airlines",
+            "airlineCode": "AA",
+            "travelClass": "First Class",
+            "departure": {
+                "time": "10:30",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Moi International Airport",
+                "city": "Mombasa",
+                "country": "Kenya"
+            },
+            "arrival": {
+                "time": "11:40",
+                "date": "Sat, 01 Mar 2026",
+                "airport": "Jomo Kenyatta Intl",
+                "city": "Nairobi",
+                "country": "Kenya"
+            },
+            "duration": "1h 10m",
+            "stops": 0,
+            "price": 42000,
+            "seatsRemaining": 2,
+            "refundable": "fully-refundable",
+            "returnFlight": {
+                "departure": {
+                    "time": "16:45",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Jomo Kenyatta Intl",
+                    "city": "Nairobi",
+                    "country": "Kenya"
+                },
+                "arrival": {
+                    "time": "17:55",
+                    "date": "Tue, 04 Mar 2026",
+                    "airport": "Moi International Airport",
+                    "city": "Mombasa",
+                    "country": "Kenya"
+                },
+                "duration": "1h 10m"
+            }
+        }
+    ]
+}
