@@ -28,12 +28,32 @@ const airlines = flightData.flights
   .filter((airline, index, self) =>
     index === self.findIndex(item => item.code === airline.code)
   );
+  
+const nonstopFlights = flightData.flights.filter(f => f.stops === 0);
+const oneStopFlights = flightData.flights.filter(f => f.stops === 1);
+const twoStopFlights = flightData.flights.filter(f => f.stops >= 2);
 
 const stopOptions = [
-  { label: "Nonstop", value: 0, price: 110, count: 23 },
-  { label: "1 Stop", value: 1, price: 324, count: 4 },
-  { label: "2+ Stops", value: 2, price: 349, count: 2 },
+  {
+    label: "Nonstop",
+    value: 0,
+    price: nonstopFlights.length ? Math.min(...nonstopFlights.map(f => f.price)) : 0,
+    count: nonstopFlights.length
+  },
+  {
+    label: "1 Stop",
+    value: 1,
+    price: oneStopFlights.length ? Math.min(...oneStopFlights.map(f => f.price)) : 0,
+    count: oneStopFlights.length
+  },
+  {
+    label: "2+ Stops",
+    value: 2,
+    price: twoStopFlights.length ? Math.min(...twoStopFlights.map(f => f.price)) : 0,
+    count: twoStopFlights.length
+  },
 ];
+
 const baggageOptions = [
   { label: "Carry-on bag", price: 129 },
   { label: "Checked bag", price: 99 },
@@ -47,10 +67,24 @@ const Filters = ({ onFilterChange }: FlightFiltersProps) => {
   const [arrivalTime, setArrivalTime] = useState<[number, number]>([0, 24]);
 
   const handleStopChange = (value: number, checked: boolean) => {
+    let updatedStops: number[];
+
     if (checked) {
-      setSelectedStops([...selectedStops, value]);
+      updatedStops = [...selectedStops, value];
     } else {
-      setSelectedStops(selectedStops.filter(stop => stop !== value));
+      updatedStops = selectedStops.filter(stop => stop !== value);
+    }
+
+    setSelectedStops(updatedStops);
+
+    if (onFilterChange) {
+      onFilterChange({
+        stops: updatedStops,
+        airlines: selectedAirlines,
+        baggage: selectedBaggage,
+        departureTime: departureTime,
+        arrivalTime: arrivalTime,
+      });
     }
   };
 

@@ -38,15 +38,15 @@ const Results = ({ flights }: { flights: Flight[] }) => {
             onClick={() => setSortBy(tab.id)}
             className={`cursor-pointer flex-1 min-w-25 py-2 sm:py-3 px-2 sm:px-4 flex items-center justify-center gap-1 sm:gap-2 border-b-2 transition-colors ${sortBy === tab.id
                 ? "border-primary text-primary"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                : "border-transparent hover:text-gray-700"
               }`}
           >
-            <span className={sortBy === tab.id ? "text-primary" : "text-gray-400"}>
+            <span className={sortBy === tab.id ? "text-primary" : "text-black"}>
               {tab.icon}
             </span>
             <div className="flex flex-col items-start">
               <span className="text-xs sm:text-sm font-medium">{tab.label}</span>
-              <span className="text-[10px] sm:text-xs text-gray-400 hidden sm:block">
+              <span className="text-[10px] sm:text-xs  hidden sm:block">
                 ${minPrice.toLocaleString()} - {minDuration}
               </span>
             </div>
