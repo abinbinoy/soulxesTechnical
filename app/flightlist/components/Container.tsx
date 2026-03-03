@@ -22,6 +22,8 @@ type SearchCriteria = {
   to: string;
   departureDate?: Date;
   returnDate?: Date;
+  trip?: string;
+  travellers: string;
 };
 
 const parseDate = (dateStr: string): Date => {
@@ -84,6 +86,16 @@ const Container = ({ search }: { search?: SearchCriteria }) => {
           returnFlightDate.setHours(0, 0, 0, 0);
           return returnFlightDate.getTime() === searchRetDate.getTime();
         });
+      }
+      if (search.trip) {
+        if (search.trip === "domestic") {
+          results = results.filter((flight) => flight.departure.country === flight.arrival.country)
+        } else {
+          results = results.filter((flight) => flight.departure.country !== flight.arrival.country)
+        }
+      }
+      if (search.travellers) {
+        results = results.filter((flight) => flight.seatsRemaining >= parseInt(search.travellers))
       }
     }
 

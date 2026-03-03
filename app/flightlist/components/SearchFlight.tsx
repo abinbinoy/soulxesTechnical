@@ -6,6 +6,7 @@ import flightData from "../data/flightData.json";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface SearchCriteria {
     airline: string;
@@ -14,20 +15,24 @@ interface SearchCriteria {
     to: string;
     departureDate?: Date;
     returnDate?: Date;
+    trip: string;
+    travellers:string;
 }
 
 interface FlightSearchProps {
     onSearch?: (criteria: SearchCriteria) => void;
+    resetFunction?: (criteria: SearchCriteria) => void;
 }
 
-const SearchFlight = ({ onSearch }: FlightSearchProps) => {
+const SearchFlight = ({ onSearch, resetFunction }: FlightSearchProps) => {
     const [selectedAirline, setSelectedAirline] = useState("");
     const [travelClass, setTravelClass] = useState("");
     const [from, setFrom] = useState("");
+    const [trip, setTrip] = useState("");
     const [to, setTo] = useState("");
     const [departureDate, setDepartureDate] = useState<Date | undefined>(undefined);
     const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
-
+    const [travellers, setTravelers] = useState("")
     const travelClasses = [...new Set(flightData.flights.map(flight => flight.travelClass))];
 
     const airlines = flightData.flights
@@ -42,6 +47,29 @@ const SearchFlight = ({ onSearch }: FlightSearchProps) => {
         setTo(temp);
     };
 
+    const handleReset = () => {
+        if (resetFunction) {
+            resetFunction({
+                airline: selectedAirline,
+                travelClass,
+                from,
+                to,
+                departureDate,
+                returnDate,
+                trip,
+                travellers
+            });
+            setSelectedAirline("");
+            setTravelClass("");
+            setFrom("");
+            setTo("");
+            setTrip("");
+            setDepartureDate(undefined);
+            setReturnDate(undefined);
+            setTravelers("");
+        }
+    }
+
     const handleSearch = () => {
         if (onSearch) {
             onSearch({
@@ -50,7 +78,9 @@ const SearchFlight = ({ onSearch }: FlightSearchProps) => {
                 from,
                 to,
                 departureDate,
-                returnDate
+                returnDate,
+                trip,
+                travellers
             });
         }
     };
@@ -88,8 +118,12 @@ const SearchFlight = ({ onSearch }: FlightSearchProps) => {
                     <div className="relative w-full sm:w-auto">
                         <select
                             className="appearance-none w-full bg-white border border-gray-300 rounded-sm px-4 py-2 pr-8 text-gray-600 text-sm focus:outline-none focus:ring-1 cursor-pointer"
+                            value={trip}
+                            onChange={(e) => setTrip(e.target.value)
+                            }
                         >
                             <option value="">Select Trip</option>
+
                             <option value="domestic">Domestic</option>
                             <option value="international">International</option>
                         </select>
@@ -138,8 +172,8 @@ const SearchFlight = ({ onSearch }: FlightSearchProps) => {
                                     {departureDate && returnDate
                                         ? `${format(departureDate, "MMM dd")} - ${format(returnDate, "MMM dd")}`
                                         : departureDate
-                                        ? `${format(departureDate, "MMM dd")} - Returning`
-                                        : "Departing - Returning"}
+                                            ? `${format(departureDate, "MMM dd")} - Returning`
+                                            : "Departing - Returning"}
                                 </button>
                             </PopoverTrigger>
                             <PopoverContent className="w-auto p-0" align="start">
@@ -173,6 +207,10 @@ const SearchFlight = ({ onSearch }: FlightSearchProps) => {
                                 type="text"
                                 placeholder="Travellers"
                                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-1"
+                                value={travellers}
+                                onChange={(e) => setTravelers(e.target.value)}
+
+
                             />
                         </div>
                     </div>
@@ -183,6 +221,9 @@ const SearchFlight = ({ onSearch }: FlightSearchProps) => {
                         <Search className="w-5 h-5" />
                         Search
                     </button>
+                    <Button variant="outline" className="h-11 text-primary outline-primary border border-primary" onClick={handleReset}>
+                        Cancel
+                    </Button>
                 </div>
             </div>
         </div>

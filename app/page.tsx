@@ -10,6 +10,10 @@ interface SearchCriteria {
   travelClass: string;
   from: string;
   to: string;
+  departureDate?: Date;
+  returnDate?: Date;
+  trip: string;
+  travellers:string;
 }
 
 export default function Home() {
@@ -17,17 +21,34 @@ export default function Home() {
     airline: "",
     travelClass: "",
     from: "",
-    to: ""
+    to: "",
+    departureDate: undefined,
+    returnDate: undefined,
+    trip: "",
+    travellers:""
   });
 
   const handleSearch = (criteria: SearchCriteria) => {
     setSearch(criteria);
   };
 
+  const handleReset = () => {
+    setSearch({
+      airline: "",
+      travelClass: "",
+      from: "",
+      to: "",
+      departureDate: undefined,
+      returnDate: undefined,
+      trip: "",
+      travellers:""
+    });
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <SearchFlight onSearch={handleSearch} />
+      <SearchFlight onSearch={handleSearch} resetFunction={handleReset}/>
       <Container search={search} />
     </div>
   );
